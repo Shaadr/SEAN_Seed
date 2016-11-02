@@ -37,6 +37,15 @@ var isAuthed = function(req, res, next) {
 	return next();
 };
 
+var isAdmin = function (req, res, next) {
+  if (req.user.isAdmin) {
+		next();
+	} else {
+		return res.status(401)
+		.send();
+	}
+}
+
 // Session and passport //
 app.use(session({
 	secret: config.SESSION_SECRET,

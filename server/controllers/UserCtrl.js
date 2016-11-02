@@ -21,6 +21,8 @@ module.exports = {
 		// Hash the users password for security
 		user.password = hashPassword(user.password);
 
+		user.email = user.email.toLowerCase();
+
 		db.user_create([user.name, user.email, user.password], function(err, user) {
 			// If err, send err
 			if (err) return res.status(500)

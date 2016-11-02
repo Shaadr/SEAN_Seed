@@ -7,7 +7,7 @@ var nodemon = require('gulp-nodemon');
 var paths = {
 	jsSource: ['public/app/**/*.js'],
 	sassSource: ['public/styles/**/*.sass'],
-	server: ['server/index.js']
+	server: 'server/index.js'
 };
 
 gulp.task('serve', function() {
@@ -35,4 +35,4 @@ gulp.task('watch', function() {
 	gulp.watch(paths.sassSource, ['sass']);
 });
 
-gulp.task('default', ['js', 'sass', 'watch']);
+gulp.task('default', ['js', 'sass', 'watch', 'serve']);

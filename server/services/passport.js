@@ -20,6 +20,7 @@ passport.use(new LocalStrategy({
 	usernameField: 'email',
 	passwordField: 'password'
 }, function(email, password, done) {
+	email = email.toLowerCase();
 
 	db.user_search_email([email], function(err, user) {
 		user = user[0];
